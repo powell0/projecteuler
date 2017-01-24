@@ -3,7 +3,7 @@ package main
 import (
     "flag"
     "fmt"
-    "ian-ferguson/project-euler/problems"
+    "github.com/powell0/projecteuler/problems"
     "sort"
     "time"
 )
