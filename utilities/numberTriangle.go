@@ -6,8 +6,8 @@ type NumberTriangle struct {
 }
 
 func (t *NumberTriangle) Initialize(levels int) {
-    t.levels = levels
-    t.data = make([][]int64, levels)
+    t.Levels = levels
+    t.Data = make([][]int64, levels)
 }
 
 func (t NumberTriangle) GetParentsValues(level int, index int) (first int64,  second int64) {
@@ -17,13 +17,13 @@ func (t NumberTriangle) GetParentsValues(level int, index int) (first int64,  se
     if level > 0 {
         if index <= 0 {
             firstParent = 0
-            secondParent = t.data[level-1][0]
+            secondParent = t.Data[level-1][0]
         } else if index >= level {
-            firstParent = t.data[level-1][level-1]
+            firstParent = t.Data[level-1][level-1]
             secondParent = 0
         } else {
-            firstParent = t.data[level-1][index-1]
-            secondParent = t.data[level-1][index]
+            firstParent = t.Data[level-1][index-1]
+            secondParent = t.Data[level-1][index]
         }
     }
 
