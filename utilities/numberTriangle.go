@@ -1,16 +1,16 @@
 package utilities
 
-type numberTriangle struct {
-    data [][]int64
-    levels int
+type NumberTriangle struct {
+    Data [][]int64
+    Levels int
 }
 
-func (t *numberTriangle) initialize(levels int) {
+func (t *numberTriangle) Initialize(levels int) {
     t.levels = levels
     t.data = make([][]int64, levels)
 }
 
-func (t numberTriangle) getParentsValues(level int, index int) (first int64,  second int64) {
+func (t numberTriangle) GetParentsValues(level int, index int) (first int64,  second int64) {
     var firstParent int64
     var secondParent int64
 
