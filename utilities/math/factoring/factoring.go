@@ -1,7 +1,7 @@
 package factoring
 
 import (
-    "ian-ferguson/math/primes"
+    "github.com/powell0/projecteuler/utilities/math/primes"
     "math"
 )
 

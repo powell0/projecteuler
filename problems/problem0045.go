@@ -1,8 +1,8 @@
 package problems
 
 import (
-    "ian-ferguson/math/number"
-    "ian-ferguson/math/summation"
+    "github.com/powell0/projecteuler/utilities/math/number"
+    "github.com/powell0/projecteuler/utilities/math/summation"
     "strconv"
 )
 

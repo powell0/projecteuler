@@ -1,7 +1,7 @@
 package problems
 
 import (
-    "ian-ferguson/math/factoring"
+    "github.com/powell0/projecteuler/utilities/math/factoring"
     "strconv"
 )
 

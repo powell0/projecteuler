@@ -1,8 +1,8 @@
 package problems
 
 import (
-    "ian-ferguson/math/factoring"
-    "ian-ferguson/math/number"
+    "github.com/powell0/projecteuler/utilities/math/factoring"
+    "github.com/powell0/projecteuler/utilities/math/number"
     "strconv"
 )
 
