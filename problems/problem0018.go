@@ -1,6 +1,7 @@
 package problems
 
 import (
+    "github.com/powell0/projecteuler/utilities"
     "github.com/powell0/projecteuler/utilities/math/number"
     "strconv"
 )
@@ -22,7 +23,7 @@ func (p problem0018) Solve() string {
 
     var result int64 = 0
     levels := 15
-    var triangle numberTriangle
+    var triangle utilities.numberTriangle
     triangle.initialize(levels)
 
     triangle.data[0] = []int64{ 75 }
