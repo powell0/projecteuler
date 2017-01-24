@@ -5,12 +5,12 @@ type NumberTriangle struct {
     Levels int
 }
 
-func (t *numberTriangle) Initialize(levels int) {
+func (t *NumberTriangle) Initialize(levels int) {
     t.levels = levels
     t.data = make([][]int64, levels)
 }
 
-func (t numberTriangle) GetParentsValues(level int, index int) (first int64,  second int64) {
+func (t NumberTriangle) GetParentsValues(level int, index int) (first int64,  second int64) {
     var firstParent int64
     var secondParent int64
 
