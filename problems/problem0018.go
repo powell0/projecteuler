@@ -43,8 +43,8 @@ func (p problem0018) Solve() string {
     triangle.Data[14] = []int64{ 4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23 }
 
     for level := 0; level < triangle.Levels; level++ {
-        for index := 0; index < len(triangle.data[level]); index++ {
-            firstParent, secondParent := triangle.getParentsValues(level, index)
+        for index := 0; index < len(triangle.Data[level]); index++ {
+            firstParent, secondParent := triangle.GetParentsValues(level, index)
 
             triangle.Data[level][index] += number.MaxInt64(firstParent, secondParent)
         }

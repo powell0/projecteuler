@@ -129,7 +129,7 @@ func (p problem0067) Solve() string {
 
     for level := 0; level < triangle.Levels; level++ {
         for index := 0; index < len(triangle.Data[level]); index++ {
-            firstParent, secondParent := triangle.getParentsValues(level, index)
+            firstParent, secondParent := triangle.GetParentsValues(level, index)
 
             triangle.Data[level][index] += number.MaxInt64(firstParent, secondParent)
         }
