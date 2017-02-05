@@ -1,6 +1,9 @@
 package number
 
-import "math"
+import (
+    "github.com/powell0/projecteuler/utilities/math/factoring"
+    "math"
+)
 
 func MinInt(x, y int) int {
     if x < y {
@@ -76,4 +79,18 @@ func IsHexagonalNumber(number uint64) bool {
     root := (1 + math.Sqrt(8 * float64(number) + 1)) / 4
 
     return (math.Abs(math.Floor(root + 0.5) - root) < 0.000001)
+}
+
+func IsAbundantNumber(number uint64) bool {
+    factors := factoring.ComputeFactors(number)
+
+    sum := uint64(0)
+
+    for _, factor := range factors {
+        if factor != number {
+            sum += factor
+        }
+    }
+
+    return sum > number
 }
