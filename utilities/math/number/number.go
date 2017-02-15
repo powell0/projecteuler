@@ -94,3 +94,53 @@ func IsAbundantNumber(number uint64) bool {
 
     return sum > number
 }
+
+func TruncateLeftmostDigit (number uint64) uint64 {
+    var result uint64
+
+    if number < 10 {
+        result = 0
+    } else {
+        base := uint64(math.Pow(10, math.Ceil(math.Log10(float64(number))) - 1))
+
+        result = number % base
+    }
+
+    return result
+}
+
+func TruncateRightmostDigit (number uint64) uint64 {
+    return number / 10
+}
+
+func GetDigits (number uint64) map[int]int {
+    results := make(map[int]int)
+
+    for number > 0 {
+        digit := int(number % 10)
+        number /= 10
+
+        results[digit]++
+    }
+
+    return results
+}
+
+func IsPermutation(first map[int]int, second map[int]int) bool {
+    result := true
+
+    for k, v := range first {
+        if second[k] != v {
+            result = false
+            break
+        }
+
+        delete(second, k)
+    }
+
+    if len(second) != 0 {
+        result = false
+    }
+
+    return result
+}
