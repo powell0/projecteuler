@@ -1,6 +1,7 @@
 package problems
 
 import (
+    "github.com/powell0/projecteuler/utilities/string/stringutil"
     "sort"
     "strconv"
     "strings"
@@ -458,22 +459,12 @@ func (p problem0022) Solve() string {
     var result uint64 = 0
 
     for index, name := range names {
-        alphabetScore := calculateAlphabeticalScore(strings.ToLower(name))
+        alphabetScore := stringutil.CalculateAlphabeticalScore(strings.ToLower(name))
 
         result += (uint64(index) + 1) * alphabetScore
     }
 
     return strconv.FormatUint(result, 10)
-}
-
-func calculateAlphabeticalScore (name string) uint64 {
-    score := 0
-
-    for _, letter := range name {
-        score += int(letter) - 96
-    }
-
-    return uint64(score)
 }
 
 func init() {
