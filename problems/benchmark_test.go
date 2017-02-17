@@ -191,7 +191,9 @@ func BenchmarkProblem0031 (b *testing.B) {
 }
 
 func BenchmarkProblem0032 (b *testing.B) {
-    b.Skip("Not implemented")
+    for i := 0; i < b.N; i++ {
+        Registry[32].Solve()
+    }
 }
 
 func BenchmarkProblem0033 (b *testing.B) {
@@ -225,7 +227,9 @@ func BenchmarkProblem0037 (b *testing.B) {
 }
 
 func BenchmarkProblem0038 (b *testing.B) {
-    b.Skip("Not implemented")
+    for i := 0; i < b.N; i++ {
+        Registry[38].Solve()
+    }
 }
 
 func BenchmarkProblem0039 (b *testing.B) {

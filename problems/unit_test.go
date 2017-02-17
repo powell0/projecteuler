@@ -284,7 +284,12 @@ func TestProblem0031 (t *testing.T) {
 }
 
 func TestProblem0032 (t *testing.T) {
-     t.Skip("Not implemented")
+    expected := "45228"
+    actual := Registry[32].Solve()
+
+    if actual != expected {
+        t.Error("Expected:", expected, "Actual:", actual)
+    }
 }
 
 func TestProblem0033 (t *testing.T) {
@@ -333,7 +338,13 @@ func TestProblem0037 (t *testing.T) {
 }
 
 func TestProblem0038 (t *testing.T) {
-    t.Skip("Not implemented")
+    expected := "932718654"
+
+    actual := Registry[38].Solve()
+
+    if actual != expected {
+        t.Error("Expected:", expected, "Actual:", actual)
+    }
 }
 
 func TestProblem0039 (t *testing.T) {

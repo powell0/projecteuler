@@ -63,6 +63,16 @@ func PowInt(x, y int) int {
     return result
 }
 
+func PowUint64(x, y uint64) uint64 {
+    result := uint64(1)
+
+    for i := uint64(0); i < y; i++ {
+        result *= x
+    }
+
+    return result
+}
+
 func IsTriangleNumber(number uint64) bool {
     root := (-1 + math.Sqrt(8 * float64(number) + 1)) / 2
 
@@ -95,7 +105,7 @@ func IsAbundantNumber(number uint64) bool {
     return sum > number
 }
 
-func TruncateLeftmostDigit (number uint64) uint64 {
+func TruncateLeftmostDigit(number uint64) uint64 {
     var result uint64
 
     if number < 10 {
@@ -109,11 +119,11 @@ func TruncateLeftmostDigit (number uint64) uint64 {
     return result
 }
 
-func TruncateRightmostDigit (number uint64) uint64 {
+func TruncateRightmostDigit(number uint64) uint64 {
     return number / 10
 }
 
-func GetDigits (number uint64) map[int]int {
+func GetDigits(number uint64) map[int]int {
     results := make(map[int]int)
 
     for number > 0 {
@@ -143,4 +153,47 @@ func IsPermutation(first map[int]int, second map[int]int) bool {
     }
 
     return result
+}
+
+func HasUniqueDigits(number uint64) bool {
+    result := true
+
+    digits := make([]bool, 10)
+
+    for number > 0 {
+        digit := int(number % 10)
+        number /= 10
+
+        if digits[digit] {
+            result = false
+
+            break;
+        }
+
+        digits[digit] = true
+    }
+
+    return result
+}
+
+func NumbersAreUnique(a, b uint64) bool {
+    result := true
+
+    aDigits := GetDigits(a)
+    bDigits := GetDigits(b)
+
+    for k, _ := range aDigits {
+        _, ok := bDigits[k]
+
+        if ok {
+            result = false
+            break
+        }
+    }
+
+    return result
+}
+
+func CountDigits(number uint64) int {
+    return int(math.Floor(math.Log10(float64(number))) + 1)
 }
