@@ -33,16 +33,15 @@ func (p problem0032) Solve() string {
             continue
         }
 
-        //multiplicandDigitCount := uint64(number.CountDigits(multiplicand))
+        multiplicandDigitCount := uint64(number.CountDigits(multiplicand))
 
-        //maxMultiplierDigits := maxMultiplicanAndMultiplierDigits - multiplicandDigitCount
-        //minMultiplierDigits := minMultiplicanAndMultiplierDigits - multiplicandDigitCount
+        maxMultiplierDigits := maxMultiplicanAndMultiplierDigits - multiplicandDigitCount
+        minMultiplierDigits := minMultiplicanAndMultiplierDigits - multiplicandDigitCount
 
-        //maxMultiplier := number.PowUint64(10, maxMultiplierDigits)
-        //minMultiplier := number.PowUint64(10, minMultiplierDigits)
+        maxMultiplier := number.PowUint64(10, maxMultiplierDigits)
+        minMultiplier := number.PowUint64(10, minMultiplierDigits)
 
-        //for multiplier := minMultiplier; multiplier < maxMultiplier; multiplier++ {
-        for multiplier := uint64(2); multiplier < maxMultiplicand; multiplier++ {
+        for multiplier := minMultiplier; multiplier < maxMultiplier; multiplier++ {
             if !number.HasUniqueDigits(multiplicand) {
                 continue
             }
@@ -52,9 +51,7 @@ func (p problem0032) Solve() string {
             }
 
             product := multiplicand * multiplier
-            //productDigitCount := uint64(number.CountDigits(product))
 
-            //pandigitalNumber := multiplicand * number.PowUint64(10, maxDigits - multiplicandDigitCount) + multiplier * number.PowUint64(10, productDigitCount) + product
             pandigitalNumberString := strconv.FormatUint(multiplicand, 10) + strconv.FormatUint(multiplier, 10) + strconv.FormatUint(product, 10)
 
             if len(pandigitalNumberString) == 9 {
