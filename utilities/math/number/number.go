@@ -197,3 +197,17 @@ func NumbersAreUnique(a, b uint64) bool {
 func CountDigits(number uint64) int {
     return int(math.Floor(math.Log10(float64(number))) + 1)
 }
+
+func Reverse(number uint64) uint64 {
+    result := uint64(0)
+
+    for number > 0 {
+        digit := number % 10
+        number /= 10
+
+        result *= 10
+        result += digit
+    }
+
+    return result
+}
