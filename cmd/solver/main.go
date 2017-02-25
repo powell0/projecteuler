@@ -61,10 +61,15 @@ func main() {
 
         // Iterate through the problems in sorted order
         for _, problemNumber := range problemList {
-            problem := problems.Registry[problemNumber]
-            results, ellapsedTime := solveProblem(problem)
+            problem, ok := problems.Registry[problemNumber]
 
-            fmt.Printf("Problem %d solved in %s: %s\n", problem.ID(), ellapsedTime, results)
+            if ok {
+                results, ellapsedTime := solveProblem(problem)
+
+                fmt.Printf("Problem %d solved in %s: %s\n", problem.ID(), ellapsedTime, results)
+            } else {
+                fmt.Printf("Problem %d does not exist\n", problemNumber)
+            }
         }
 
         fmt.Printf("\n%d problems solved in %s\n", len(problemList), time.Since(start))
