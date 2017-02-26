@@ -333,3 +333,9 @@ func BenchmarkProblem0097 (b *testing.B) {
         Registry[97].Solve()
     }
 }
+
+func BenchmarkProblem0099 (b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        Registry[99].Solve()
+    }
+}

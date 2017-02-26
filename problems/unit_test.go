@@ -499,3 +499,12 @@ func TestProblem0097 (t *testing.T) {
         t.Error("Expected:", expected, "Actual:", actual)
     }
 }
+
+func TestProblem0099 (t *testing.T) {
+    expected := "709"
+    actual := Registry[99].Solve()
+
+    if actual != expected {
+        t.Error("Expected:", expected, "Actual:", actual)
+    }
+}
