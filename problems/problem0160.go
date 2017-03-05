@@ -22,11 +22,8 @@ func (p problem0160) Solve() string {
     const limit = 1000000000000
 
     factorial := uint64(1);
-    count := uint64(0)
 
-    const tempLimit = 1000000000
-
-    for i := uint64(2); i < tempLimit; i++ {
+    for i := uint64(2); i < limit; i++ {
         product := i
 
         for product % 10 == 0 {
@@ -40,8 +37,6 @@ func (p problem0160) Solve() string {
         }
 
         factorial %= limit
-
-        count++
     }
 
     return strconv.FormatUint(factorial % limit, 10)
