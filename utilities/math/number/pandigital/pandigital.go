@@ -16,13 +16,6 @@ func IsPandigital (number uint64, n int) bool {
         for number > 0 {
             digit := int(number % 10)
             number /= 10
-
-            if digit > n || digit == 0 || digits[digit] {
-                result = false
-
-                break;
-            }
-
             digits[digit] = true
         }
 
