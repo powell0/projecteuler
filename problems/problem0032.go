@@ -1,7 +1,6 @@
 package problems
 
 import (
-    "fmt"
     "github.com/powell0/projecteuler/utilities/math/number"
     "github.com/powell0/projecteuler/utilities/math/number/pandigital"
     "strconv"
@@ -69,8 +68,6 @@ func (p problem0032) Solve() string {
     for k, _ := range products {
         sum += k
     }
-
-    fmt.Println(len(products))
 
     return strconv.FormatUint(sum, 10)
 }
