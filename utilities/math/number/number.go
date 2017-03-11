@@ -211,3 +211,69 @@ func Reverse(number uint64) uint64 {
 
     return result
 }
+
+func AreCoprime(a uint64, b uint64) bool {
+    coprime := true
+
+    if a == b {
+        coprime = false
+    } else if a == 1 || b == 1 {
+        coprime = true
+    } else {
+        commonFactors := make(map[uint64]struct{})
+
+        primeFactorizationA := factoring.ComputePrimeFactors(a, nil)
+        primeFactorizationB := factoring.ComputePrimeFactors(b, nil)
+
+        for _, primeFactor := range primeFactorizationA {
+            commonFactors[primeFactor.Number] = struct{}{}
+        }
+
+        for _, primeFactor := range primeFactorizationB {
+            _, ok := commonFactors[primeFactor.Number]
+
+            if ok {
+                coprime = false
+                break
+            }
+        }
+    }
+
+    return coprime
+}
+
+func GCD(a uint64, b uint64) uint64 {
+    if a == b {
+        return a
+    }
+
+    if a == 0 {
+        return 0
+    }
+
+    if b == 0 {
+        return 0
+    }
+
+    if ^a & 1 == 1 {
+        if b & 1 == 1 {
+            return GCD(a >> 1, b)
+        } else {
+            return GCD(a >> 1, b >> 1) << 1
+        }
+    }
+
+    if ^b & 1 == 1 {
+        return GCD(a, b >> 1)
+    }
+
+    if a > b {
+        return GCD((a - b) >> 1, b)
+    }
+
+    return GCD((b - a) >> 1, a)
+}
+
+func LogBase(x float64, b float64) float64 {
+    return math.Log(x) / math.Log(b)
+}
