@@ -254,6 +254,14 @@ func EulerTotient(n uint64) uint64 {
     return uint64(count)
 }
 
+func Resilience(n uint64) float64 {
+    count := EulerTotient(n)
+
+    resilience := float64(count) / float64(n-1)
+
+    return resilience
+}
+
 func GCD(a uint64, b uint64) uint64 {
     if a == b {
         return a
