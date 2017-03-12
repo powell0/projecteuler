@@ -242,6 +242,18 @@ func AreCoprime(a uint64, b uint64) bool {
     return coprime
 }
 
+func EulerTotient(n uint64) uint64 {
+    primeFactorization := factoring.ComputePrimeFactors(n, nil)
+
+    count := float64(n)
+
+    for _, primeFactor := range primeFactorization {
+        count *= (1 - 1 / float64(primeFactor.Number))
+    }
+
+    return uint64(count)
+}
+
 func GCD(a uint64, b uint64) uint64 {
     if a == b {
         return a
