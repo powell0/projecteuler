@@ -304,6 +304,12 @@ func BenchmarkProblem0050 (b *testing.B) {
     }
 }
 
+func BenchmarkProblem0052 (b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        Registry[52].Solve()
+    }
+}
+
 func BenchmarkProblem0053 (b *testing.B) {
     for i := 0; i < b.N; i++ {
         Registry[53].Solve()
