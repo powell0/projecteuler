@@ -297,3 +297,13 @@ func GCD(a uint64, b uint64) uint64 {
 func LogBase(x float64, b float64) float64 {
     return math.Log(x) / math.Log(b)
 }
+
+func Factorial(n uint64) uint64 {
+    result := uint64(1)
+
+    for i := n; i > 0; i-- {
+        result *= i
+    }
+
+    return result
+}
