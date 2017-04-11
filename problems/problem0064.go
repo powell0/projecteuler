@@ -23,7 +23,7 @@ func (p problem0064) Solve() string {
 
     count := 0
 
-    for i := 2; i <= limit; i++ {
+    for i := int64(2); i <= limit; i++ {
         rep := continuedfractions.ComputeSquareRootRepresenation(i)
 
         period := len(rep) - 1
