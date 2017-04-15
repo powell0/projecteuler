@@ -63,6 +63,16 @@ func PowInt(x, y int) int {
     return result
 }
 
+func PowInt64(x, y int64) int64 {
+    result := int64(1)
+
+    for i := int64(0); i < y; i++ {
+        result *= x
+    }
+
+    return result
+}
+
 func PowUint64(x, y uint64) uint64 {
     result := uint64(1)
 
