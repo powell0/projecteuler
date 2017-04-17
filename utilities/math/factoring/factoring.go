@@ -24,13 +24,17 @@ func newPrimeFactor(number uint64, count uint) PrimeFactor {
 func ComputePrimeFactors(number uint64, primeList []uint64) []PrimeFactor {
     primeLimit := uint64(math.Sqrt(float64(number)) + 1)
 
-    if primeList == nil || len(primeList) > 0 || primeLimit > primeList[len(primeList)-1] {
+    if primeList == nil || len(primeList) == 0 || primeLimit > primeList[len(primeList)-1] {
         primeList = primes.ComputePrimes(primeLimit)
     }
 
     primeFactors := make([]PrimeFactor, 0, len(primeList))
 
     for _, prime := range primeList {
+        if prime > number {
+            break;
+        }
+
         primeFactor := newPrimeFactor(prime, 0)
 
         for number % prime == 0 {
