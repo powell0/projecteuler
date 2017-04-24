@@ -716,6 +716,15 @@ func TestProblem0099 (t *testing.T) {
     }
 }
 
+func TestProblem0102 (t *testing.T) {
+    expected := "228"
+    actual := Registry[102].Solve()
+
+    if actual != expected {
+        t.Error("Expected:", expected, "Actual:", actual)
+    }
+}
+
 func TestProblem0104 (t *testing.T) {
     expected := "329468"
     actual := Registry[104].Solve()
