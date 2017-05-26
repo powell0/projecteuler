@@ -5,6 +5,14 @@ import (
     "math"
 )
 
+func AbsInt(x int) int {
+    if x < 0 {
+        x *= -1
+    }
+
+    return x
+}
+
 func MinInt(x, y int) int {
     if x < y {
         return x
