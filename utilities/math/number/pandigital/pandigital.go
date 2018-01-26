@@ -5,7 +5,37 @@ import (
     "strconv"
 )
 
-func IsPandigital (number uint64, n int) bool {
+func generateAllowedDigitsString(start int, end int) map[string]struct{} {
+    allowedDigits := make(map[string]struct{})
+
+    for i := start; i <= end; i++ {
+        allowedDigits[strconv.Itoa(i)] = struct{}{}
+    }
+
+    return allowedDigits
+}
+
+func IsPandigitalString(number string, firstNumber int, lastNumber int) bool {
+    allowedDigits := generateAllowedDigitsString(firstNumber, lastNumber)
+    isPandigital := true
+
+    for i := 0; i < len(number); i++ {
+        digit := number[i: i+1]
+
+        _, ok := allowedDigits[digit]
+
+        if !ok {
+            isPandigital = false
+            break
+        }
+
+        delete(allowedDigits, digit)
+    }
+    
+    return isPandigital
+}
+
+func IsPandigital(number uint64, n int) bool {
     result := true
 
     if n < 1 || n > 9 {
@@ -28,7 +58,8 @@ func IsPandigital (number uint64, n int) bool {
     }
     return result;
 }
-func GeneratePandigitalStrings (n int, includeZero bool) []string {
+
+func GeneratePandigitalStrings(n int, includeZero bool) []string {
     lowerLimit := 1
 
     if includeZero {
@@ -67,7 +98,7 @@ func GeneratePandigitalStrings (n int, includeZero bool) []string {
     return numbers
 }
 
-func GeneratePandigitalNumbers (n int, includeZero bool) []uint64 {
+func GeneratePandigitalNumbers(n int, includeZero bool) []uint64 {
     lowerLimit := 1
 
     if includeZero {
@@ -116,7 +147,7 @@ func GeneratePandigitalNumbers (n int, includeZero bool) []uint64 {
     return numbers
 }
 
-func generatePandigitalNumbersRecursively (digits map[int]struct{}, pandigitalNumber string, numbers *[]string) {
+func generatePandigitalNumbersRecursively(digits map[int]struct{}, pandigitalNumber string, numbers *[]string) {
     if len(digits) == 0 {
         *numbers = append(*numbers, pandigitalNumber)
 
@@ -136,3 +167,4 @@ func generatePandigitalNumbersRecursively (digits map[int]struct{}, pandigitalNu
         generatePandigitalNumbersRecursively(newDigits, newPandigitalNumber, numbers)
     }
 }
+
