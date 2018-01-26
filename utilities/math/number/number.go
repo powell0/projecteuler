@@ -325,3 +325,49 @@ func Factorial(n uint64) uint64 {
 
     return result
 }
+
+func IsIncreasingNumber(n uint64) bool {
+    result := true
+
+    prevDigit := n % 10
+    n /= 10
+
+    for n > 0 {
+        digit := n % 10
+
+        if digit > prevDigit {
+            result = false
+            break
+        }
+
+        prevDigit = digit
+        n /= 10
+    }
+
+    return result;
+}
+
+func IsDecreasingNumber(n uint64) bool {
+    result := true
+
+    prevDigit := n % 10
+    n /= 10
+
+    for n > 0 {
+        digit := n % 10
+
+        if digit < prevDigit {
+            result = false
+            break
+        }
+
+        prevDigit = digit
+        n /= 10
+    }
+
+    return result;
+}
+
+func IsBouncyNumber(n uint64) bool {
+    return !IsIncreasingNumber(n) && !IsDecreasingNumber(n)
+}
